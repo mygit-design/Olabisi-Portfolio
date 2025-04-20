@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayeni Olabisi Emmanuel | Data Analyst & Data Scientist</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --light-color: #f8f9fa;
+            --dark-gray: #495057;
+            --medium-gray: #6c757d;
+            --light-gray: #e9ecef;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            background-color: var(--light-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+        }
+        
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+        }
+        
+        .header-text {
+            max-width: 700px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        h2 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            background-color: var(--secondary-color);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: white;
+            color: var(--secondary-color);
+        }
+
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-color);
+            padding: 0 1.5rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            position: relative;
+            font-weight: 600;
+        }
+        
+        section h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .highlight {
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skill-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .skill-list li::before {
+            content: '•';
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .experience-timeline {
+            position: relative;
+        }
+        
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background-color: var(--light-gray);
+            top: 0;
+            bottom: 0;
+            left: 50px;
+        }
+        
+        .timeline-item {
+            padding-left: 100px;
+            position: relative;
+            margin-bottom: 3rem;
+        }
+        
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            left: 42px;
+            top: 5px;
+        }
+        
+        .timeline-date {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            color: var(--medium-gray);
+            font-weight: 500;
+            width: 85px;
+            text-align: right;
+        }
+        
+        .timeline-content {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .timeline-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .timeline-content h4 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        
+        .timeline-content ul {
+            padding-left: 1.5rem;
+        }
+        
+        .timeline-content ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover .project-img img {
+            transform: scale(1.05);
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .project-content p {
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .project-tag {
+            background-color: var(--light-gray);
+            color: var(--medium-gray);
+            padding: 0.3rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        .education-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .education-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .education-card h4 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        
+        .education-card p {
+            color: var(--medium-gray);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .honors-awards {
+            margin-top: 3rem;
+        }
+        
+        .honors-list {
+            list-style: none;
+        }
+        
+        .honors-list li {
+            background-color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 3rem;
+        }
+        
+        .honors-list li::before {
+            content: '🏆';
+            position: absolute;
+            left: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .contact-form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark-gray);
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--light-gray);
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .contact-info {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .contact-info a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-info a:hover {
+            color: var(--primary-color);
+        }
+        
+        .download-cv {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .download-cv a {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        
+        .download-cv a:hover {
+            background-color: #c0392b;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        footer p {
+            margin-bottom: 1rem;
+        }
+        
+        footer .social-links {
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header-text {
+                margin-top: 1.5rem;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .experience-timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                padding-left: 50px;
+            }
+            
+            .timeline-dot {
+                left: 12px;
+            }
+            
+            .timeline-date {
+                position: relative;
+                left: auto;
+                top: auto;
+                width: auto;
+                text-align: left;
+                margin-bottom: 0.5rem;
+                font-weight: bold;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-links a {
+                padding: 0.5rem 0;
+            }
+            
+            .skills-container,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="withoutbg.PNG" alt="Ayeni Olabisi Emmanuel" class="profile-img">
+                <div class="header-text">
+                    <h1>Ayeni Olabisi Emmanuel</h1>
+                    <h2>Data Analysis Specialist | Data Scientist | Machine Learning Enthusiast</h2>
+                    <p>Results-driven Data Analyst with over 4 years of experience converting complex business challenges into data-powered solutions. Bridging the gap between technical analysis and business objectives to improve organizational performance.</p>
+                    <div class="social-links">
+                        <a href="mailto:olabisiemmanuel001@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+                        <a href="https://linkedin.com/in/ayeni-olabisi" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                        <a href="https://github.com/ayeni-olabisi" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="#contact"><i class="fas fa-phone"></i> Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#education">Education</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a <span class="highlight">Data Analysis Specialist</span> with over 4 years of professional experience in transforming complex data into actionable business insights. My expertise lies in statistical analysis, predictive modeling, and creating interactive dashboards that drive strategic decision-making across operations, marketing, and finance.</p>
+                    <p>With proven success in developing automated reporting systems and delivering actionable insights through <span class="highlight">R, Python, SQL, Tableau, and Power BI</span>, I excel at uncovering patterns and trends that help organizations make data-driven decisions. My background in statistics and public health analytics has equipped me with a unique perspective on data analysis that combines rigorous methodological approaches with practical business applications.</p>
+                    <p>As a skilled communicator, I effectively bridge the gap between technical analysis and business objectives, translating complex findings into clear, actionable recommendations for stakeholders at all levels. I'm passionate about leveraging data to solve real-world problems and improve organizational performance.</p>
+                </div>
+                <div class="download-cv">
+                    <a href="AYENI OLABISI EMMANUEL_Resume.pdf" id="downloadCV" download><i class="fas fa-download"></i> Download My Resume</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="skills" style="background-color: #f5f9fc;">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <h3><i class="fas fa-chart-line"></i> Statistical Analysis</h3>
+                    <ul class="skill-list">
+                        <li>R Programming</li>
+                        <li>SAS</li>
+                        <li>Python (pandas, numpy, scipy)</li>
+                        <li>Microsoft Excel (Advanced)</li>
+                        <li>Statistical Methods</li>
+                        <li>Data Modeling & Analysis</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3><i class="fas fa-chart-pie"></i> Data Visualization</h3>
+                    <ul class="skill-list">
+                        <li>Tableau</li>
+                        <li>Power BI</li>
+                        <li>ggplot</li>
+                        <li>Plotly</li>
+                        <li>Highcharter</li>
+                        <li>Interactive Dashboards</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3><i class="fas fa-database"></i> Data Management</h3>
+                    <ul class="skill-list">
+                        <li>Data Cleaning & Preprocessing</li>
+                        <li>ETL Processes</li>
+                        <li>Survey Design & Implementation</li>
+                        <li>Data Integration</li>
+                        <li>Database Management</li>
+                        <li>Data Quality Assurance</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3><i class="fas fa-brain"></i> Machine Learning</h3>
+                    <ul class="skill-list">
+                        <li>Predictive Modeling</li>
+                        <li>Regression Analysis</li>
+                        <li>Classification Algorithms</li>
+                        <li>Clustering</li>
+                        <li>Time Series Analysis</li>
+                        <li>Model Evaluation</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3><i class="fas fa-laptop-code"></i> Programming</h3>
+                    <ul class="skill-list">
+                        <li>Python</li>
+                        <li>SQL</li>
+                        <li>R</li>
+                        <li>Data Structures</li>
+                        <li>Version Control (Git)</li>
+                        <li>Automation Scripts</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3><i class="fas fa-users"></i> Soft Skills</h3>
+                    <ul class="skill-list">
+                        <li>Cross-functional Team Collaboration</li>
+                        <li>Data Storytelling</li>
+                        <li>Technical Communication</li>
+                        <li>Presentation Skills</li>
+                        <li>Leadership</li>
+                        <li>Problem-solving</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="experience">
+        <div class="container">
+            <h2>Work Experience</h2>
+            <div class="experience-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2023-2024</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Data Analyst</h3>
+                        <h4>National Youth Service Corps, Edo State, Nigeria</h4>
+                        <ul>
+                            <li>Served as a dedicated Data Analyst for various public health initiatives</li>
+                            <li>Conducted qualitative and quantitative analyses to support strategic planning and decision-making</li>
+                            <li>Worked closely with local health authorities to assess community needs and developed targeted interventions for disease prevention and health education</li>
+                            <li>Applied statistical techniques to evaluate program effectiveness and outcomes</li>
+                            <li>Created comprehensive reports and visualizations for stakeholder presentations</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2021-2023</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Data Analyst</h3>
+                        <h4>FUTA LISA, Akure, Nigeria</h4>
+                        <ul>
+                            <li>Led the analysis of demographic data to support disease prevention programs, contributing to resource allocation strategies</li>
+                            <li>Developed and implemented statistical models to forecast public health emergencies, such as disease outbreaks</li>
+                            <li>Conducted extensive literature reviews and synthesized findings to inform data-driven policy decisions</li>
+                            <li>Streamlined data collection processes in collaboration with healthcare providers to improve data accuracy and integrity</li>
+                            <li>Implemented data quality control measures to ensure reliable analytics output</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2021-2022</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Data Analyst</h3>
+                        <h4>C&C Analytics, Akure, Nigeria</h4>
+                        <ul>
+                            <li>Conducted comprehensive statistical and epidemiological data analyses to identify key trends and patterns in public health</li>
+                            <li>Collaborated with interdisciplinary teams to design and evaluate public health programs, contributing to evidence-based decision-making</li>
+                            <li>Utilized advanced statistical tools (SAS, Python, R) to process large datasets and produce actionable insights</li>
+                            <li>Spearheaded the development and implementation of innovative data visualization tools in Tableau and Power BI, facilitating clear communication of complex data to stakeholders</li>
+                            <li>Assisted in grant proposals by leveraging data-driven evidence to secure funding for health initiatives</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2018-Present</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Freelance Researcher</h3>
+                        <h4>Upwork, Fiverr</h4>
+                        <ul>
+                            <li>Assisted over 100 clients globally with survey design, data collection, and analysis, providing insights that align with organizational goals</li>
+                            <li>Guided clients in creating reliable data collection instruments and implementing effective research methodologies</li>
+                            <li>Delivered comprehensive reports and statistical analyses, offering actionable recommendations based on data trends to cross-industry clients</li>
+                            <li>Applied advanced analytical techniques to solve complex business problems</li>
+                            <li>Developed custom data solutions tailored to specific client needs and objectives</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="projects" style="background-color: #f5f9fc;">
+        <div class="container">
+            <h2>Projects & Research</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="sanction.jpeg" alt="Economic Sanctions Analysis">
+                    </div>
+                    <div class="project-content">
+                        <h3>Impact of Western Sanctions on Russia and Nigeria's Economy</h3>
+                        <p>Applied Autoregressive Distributed Lag (ARDL) modeling techniques to analyze how Western sanctions on Russia affected Nigeria's economy, identifying key economic indicators and predictive factors.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Time Series Analysis</span>
+                            <span class="project-tag">ARDL</span>
+                            <span class="project-tag">Economic Modeling</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="survival.png" alt="Malaria Patient Mortality">
+                    </div>
+                    <div class="project-content">
+                        <h3>Survival Analysis on Malaria Patient Mortality</h3>
+                        <p>Co-authored research applying survival analysis techniques to examine factors affecting mortality rates among malaria patients, identifying critical intervention points and risk factors.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Survival Analysis</span>
+                            <span class="project-tag">Healthcare</span>
+                            <span class="project-tag">R</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="trade.jpeg" alt="West African Trade">
+                    </div>
+                    <div class="project-content">
+                        <h3>Effect of Trade Openness on Economic Growth</h3>
+                        <p>Conducted a comprehensive study examining the relationship between trade openness and economic growth across 16 West African countries, utilizing panel data analysis and econometric models.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Econometrics</span>
+                            <span class="project-tag">Panel Data</span>
+                            <span class="project-tag">Economic Development</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="timeseries.jpeg" alt="Crime Analysis">
+                    </div>
+                    <div class="project-content">
+                        <h3>Time Series Analysis of Crimes in Akure</h3>
+                        <p>Analyzed crime data from Akure Police Division using time series techniques to identify patterns, trends, and seasonal variations in criminal activities, providing insights for resource allocation and preventive measures.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Time Series</span>
+                            <span class="project-tag">Criminal Justice</span>
+                            <span class="project-tag">Forecasting</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="response.jpeg" alt="AI and RSM">
+                    </div>
+                    <div class="project-content">
+                        <h3>AI and Response Surface Methodology</h3>
+                        <p>Developed innovative models combining AI techniques with Response Surface Methodology to analyze aerial biomass and its physicochemical properties, enhancing prediction accuracy and model reliability.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Artificial Intelligence</span>
+                            <span class="project-tag">RSM</span>
+                            <span class="project-tag">Biomass Analysis</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="churn.png" alt="Predictive Analytics">
+                    </div>
+                    <div class="project-content">
+                        <h3>Predictive Analytics for Customer Churn</h3>
+                        <p>Implemented machine learning models to predict customer churn for a telecommunications company, achieving 87% accuracy and identifying key retention factors to improve customer loyalty strategies.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Machine Learning</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Customer Analytics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="education">
+        <div class="container">
+            <h2>Education & Achievements</h2>
+            <div class="education-card">
+                <h3>BTech in Statistics</h3>
+                <h4>Federal University of Technology, Akure</h4>
+                <p>2016 - 2023</p>
+                <p>Focused on advanced statistical methods, data analysis, and research methodology with specialization in econometrics and time series analysis.</p>
+            </div>
+            
+            <div class="honors-awards">
+                <h3>Honors & Certifications</h3>
+                <ul class="honors-list">
+                    <li>Google Data Analytics Professional Certificate</li>
+                    <li>IBM Data Science Professional Certificate</li>
+                    <li>Microsoft Certified: Power BI Data Analyst Associate</li>
+                    <li>Best Student Researcher Award, Department of Statistics, FUTA</li>
+                    <li>Merit Award for Academic Excellence, 2021</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" style="background-color: #f5f9fc;">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-form-container">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+            
+            <div class="contact-info">
+                <p>Email: <a href="mailto:olabisiemmanuel001@gmail.com">olabisiemmanuel001@gmail.com</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/olabisi-ayeni-697a00322" target="_blank">linkedin.com/in/ayeni-olabisi</a></p>
+                <p>GitHub: <a href="https://github.com/mygit-design" target="_blank">github.com/ayeni-olabisi</a></p>
+                <p>Location: Lagos, Nigeria</p>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Ayeni Olabisi Emmanuel. All rights reserved.</p>
+            <div class="social-links">
+                <a href="mailto:olabisiemmanuel001@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+                <a href="https://www.linkedin.com/in/olabisi-ayeni-697a00322" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/mygit-design" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would typically add code to send the form data to a server
+            // For now, just show an alert
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+        
+        // Add active class to navigation based on scroll position
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 100)) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
